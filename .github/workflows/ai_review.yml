@@ -1,0 +1,18 @@
+## 2. GitHub Workflow file (.github/workflows/ai_review.yml)
+
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run AI Review
+        run: |
+          python3 agent.py
